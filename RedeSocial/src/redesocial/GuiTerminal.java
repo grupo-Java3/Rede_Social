@@ -23,7 +23,7 @@ public class GuiTerminal {
             case 0:
                 //não consegui fazer um array de strings
                 System.out.printf("%s%n%s%n%s", "################", "##REDE##SOCIAL##", "################");
-                System.out.printf("Opcoes:%n1 - login%n2 - cadastrar%n3 - sair%n>>");
+                System.out.printf("Opcoes:%n1 - login%n2 - cadastrar%n3 - sair%n4 - listar todos%n>>");
                 break;
                 
                 
@@ -41,6 +41,10 @@ public class GuiTerminal {
                 
             case 3://sair
                 this.sta = false;
+                break;
+                
+            case -1:
+                usuario.listar();
                 break;
         }
     
