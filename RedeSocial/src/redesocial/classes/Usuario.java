@@ -84,7 +84,7 @@ public class Usuario{
      }
      
     
-    //??
+    //arraylist metodos
     public ArrayList<Pessoa> getListaPessoa() {
         return listaPessoa;
     }
@@ -100,5 +100,39 @@ public class Usuario{
     public void setListaEmpresa(ArrayList<Empresa> listaEmpresa) {
         this.listaEmpresa = listaEmpresa;
     }
+    
+    //gets e setters
 
+    public String getNomeUsuario() {
+        return nomeUsuario;
+    }
+
+    public void setNomeUsuario(String nomeUsuario) {
+        this.nomeUsuario = nomeUsuario;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public int getTipoConta() {
+        return tipoConta;
+    }
+
+    public void setTipoConta(int tipoConta) {
+        this.tipoConta = tipoConta;
+    }
+    
 }
