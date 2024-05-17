@@ -37,6 +37,9 @@ public class terminal {
         System.out.println(adm.getListaPessoa().get(0).getLista_de_amigos());
         adm.atualizarE("Viagens_a_Lua", "LuaMarte@gmail", "Elon_muski", "Lua_e_Marte", "2324234", "foguetes");
         adm.listar();
+        adm.fazerAmizade(adm.getPessoa("Joselito"), adm.getEmpresa("Lua_e_Marte"));
+        adm.fazerAmizade(adm.getPessoa("Joselito"), adm.getEmpresa("carlao"));
+        adm.listar();
     }
     
 }

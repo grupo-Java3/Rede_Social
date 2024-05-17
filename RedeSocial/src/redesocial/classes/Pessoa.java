@@ -88,7 +88,7 @@ public class Pessoa extends Usuario {
 
     @Override
     public String toString() {
-        return "Pessoa{" + "nome=" + nome + ", descr=" + descr +", amigos= {"+ "..." +"}" +", email="+ super.email
+        return "Pessoa{" + "nome=" + nome + ", descr=" + descr +", amigos= {"+ getLista_de_amigos() +"}" +", email="+ super.email
                 + ", nome usuario=" + super.nomeUsuario + ", senha=" + super.senha + '}';
 
     }

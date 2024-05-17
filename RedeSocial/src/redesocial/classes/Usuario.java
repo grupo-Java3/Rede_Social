@@ -85,6 +85,11 @@ public class Usuario{
          usu1.listaAmigo.put(usu2.getNomeUsuario(), usu2.getClass().getSimpleName());
          usu2.listaAmigo.put(usu1.getNomeUsuario(), usu1.getClass().getSimpleName());
      }
+     public void desfazerAmizade(Usuario usu1, Usuario usu2){
+         usu1.listaAmigo.remove(usu2.getNomeUsuario(), usu2.getClass().getSimpleName());
+         usu2.listaAmigo.remove(usu1.getNomeUsuario(), usu1.getClass().getSimpleName());
+     }
+     
 
      // EMPRESSSASSSSSSS
      public Usuario getEmpresa(String nome){
