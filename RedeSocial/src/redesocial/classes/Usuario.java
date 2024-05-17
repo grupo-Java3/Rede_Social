@@ -6,9 +6,10 @@ public class Usuario{
     public String nomeUsuario;
     protected String email;
     protected String senha;
+    protected char[] senhaS;
     protected int tipoConta; // 0 usuario , 1 pessoa, 2 empresa
    //coisas de adm
-    private ArrayList<Pessoa> listaPessoa = new ArrayList();
+    public ArrayList<Pessoa> listaPessoa = new ArrayList();
     private ArrayList<Empresa> listaEmpresa = new ArrayList();
    //construtor (precisa?? PRECISA!!)
     public Usuario(){
@@ -31,8 +32,13 @@ public class Usuario{
      public void adicinar(Pessoa pessoa){
         listaPessoa.add(pessoa);
      }
+     
      public void adicionarPessoa (String nome, String descricao, String nomeUsuario,String email, String senha){
          Pessoa pessoa = new Pessoa(nome, senha, nomeUsuario, email, senha);
+         listaPessoa.add(pessoa);
+     }
+     public void adicionarPessoa (String nomeUsuario,String email, String senha){
+         Pessoa pessoa = new Pessoa(nomeUsuario, email, senha);
          listaPessoa.add(pessoa);
      }
      public void adicionarPessoaS (){
@@ -42,20 +48,24 @@ public class Usuario{
      public void removerPessoa (Pessoa pessoaRM){
          listaPessoa.remove(pessoaRM);
      }
-    
+     public void fazerAmizade (Integer Pessoa_1,Integer Pessoa_2){
+         System.out.println(listaPessoa.get(Pessoa_1));
+         System.out.println(listaPessoa.get(Pessoa_2));
+         listaPessoa.get(Pessoa_1).amigos.add(Pessoa_2);
+         listaPessoa.get(Pessoa_2).amigos.add(Pessoa_1);
+     }
      
+     
+     // EMPRESSSASSSSSSS
      
      public void adicionar(Empresa empresa){
          listaEmpresa.add(empresa);
      }
-      public void adicionarEmpresa (String nome_comercial, String nomeUsuario, String email, String senha){
-         Empresa empresa = new Empresa(nome_comercial, nomeUsuario, email, senha);
+     public void adicionarEmpresa(String cnpj, String ramo, String nomeUsuario,String email, String senha){
+         Empresa empresa = new Empresa(cnpj, ramo, nomeUsuario, email, senha);
          listaEmpresa.add(empresa);
      }
-     public void adicionarEmpresaS (){
-         /*função "segura" de adicionar pessoas para que não haja pessoas com 
-         com id ou indetificação como usuario iguais*/
-     }
+     
      public void removerEmpresa (Pessoa pessoaRM){
          listaPessoa.remove(pessoaRM);
      }
@@ -134,5 +144,11 @@ public class Usuario{
     public void setTipoConta(int tipoConta) {
         this.tipoConta = tipoConta;
     }
-    
+    public char[] getSenhaS() {
+        return senhaS;
+    }
+
+    public void setSenhaS(char[] senhaS) {
+        this.senhaS = senhaS;
+    }
 }

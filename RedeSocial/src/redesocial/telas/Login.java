@@ -3,13 +3,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package redesocial.telas;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import redesocial.classes.Empresa;
 import redesocial.classes.Pessoa;
+import redesocial.classes.Usuario;
 /**
  *
  * @author cliente
  */
 public class Login extends javax.swing.JFrame {
-   Pessoa p = new Pessoa("adminson", "admin@gmail.com", "admin");
+    public Usuario admL = new Usuario();
     /**
      * Creates new form NewJFrame
      */
@@ -18,7 +22,6 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,11 +36,17 @@ public class Login extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
         txtSenha = new javax.swing.JPasswordField();
-        btnEntrar = new javax.swing.JButton();
+        btnEntrarP = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         btnCadastro = new javax.swing.JButton();
+        btnEntrarE = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLabel1.setText("Login");
 
@@ -45,10 +54,10 @@ public class Login extends javax.swing.JFrame {
 
         jLabel3.setText("Senha");
 
-        btnEntrar.setText("Entrar");
-        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
+        btnEntrarP.setText("Entrar(Pessoa)");
+        btnEntrarP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEntrarActionPerformed(evt);
+                btnEntrarPActionPerformed(evt);
             }
         });
 
@@ -61,30 +70,36 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        btnEntrarE.setText("Entrar(Empresa)");
+        btnEntrarE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntrarEActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(180, 180, 180)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(txtSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
-                            .addComponent(txtEmail)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(188, Short.MAX_VALUE))
+                .addGap(180, 180, 180)
+                .addComponent(jLabel1)
+                .addContainerGap(254, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnEntrar)
+                .addGap(51, 51, 51)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
+                    .addComponent(txtSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
+                    .addComponent(txtEmail)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnEntrarP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEntrarE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(48, 48, 48))
         );
         layout.setVerticalGroup(
@@ -100,34 +115,108 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEntrar)
-                    .addComponent(jLabel4)
-                    .addComponent(btnCadastro))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(btnCadastro)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(btnEntrarP)
+                        .addGap(28, 28, 28)
+                        .addComponent(btnEntrarE)))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        String email = txtEmail.getText();
-        String senha = String.valueOf(txtSenha.getPassword());
-         
-        if(email.equals(p.getEmail()) && senha.equals(p.getSenha())){
-            RedeSocial r = new RedeSocial();
-            this.dispose(); 
-            r.setVisible(true);
+    
+    public boolean temEmPessoaEmail(String validar){
+        for (Pessoa i : admL.listaPessoa)
+            if (validar.equals(i.getEmail())){
+                return true;
+            }
+        return false;
+    }
+    public boolean temEmPessoaSenha(String validar){
+        for (Pessoa i : admL.listaPessoa)
+            if (validar.equals(validar)){
+                return true;
+            }
+        return false;
+    }
+    
+    public boolean temEmEmpresaEmail(String validar){
+        for (Empresa i : admL.getListaEmpresa())
+            if (validar.equals(i.getEmail())){
+                return true;
+            }
+        return false;
+    }
+    public boolean temEmEmpresaSenha(String validar){
+        for (Empresa i : admL.getListaEmpresa())
+            if (validar.equals(validar)){
+                return true;
+            }
+        return false;
+    }
+    
+    private void btnEntrarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarPActionPerformed
+        if (temEmPessoaSenha(String.valueOf(txtSenha.getPassword())) || temEmPessoaEmail(txtEmail.getText()) ){ 
+            RedeSocial redesocial = new RedeSocial();
+            redesocial.admRS = admL;
+            redesocial.setVisible(true);
+            this.dispose();
         }
-    }//GEN-LAST:event_btnEntrarActionPerformed
+        else{
+            JOptionPane.showMessageDialog(this,"Email ou Senha incorretos");
+            limparCampos();
+        }
+       
+            
+    }//GEN-LAST:event_btnEntrarPActionPerformed
 
+    public void limparCampos(){
+        txtEmail.setText("");
+        txtSenha.setText("");
+        
+    }
+    
     private void btnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroActionPerformed
         Cadastro c = new Cadastro();
+        c.admC = admL;
         this.dispose();
         c.setVisible(true);
     }//GEN-LAST:event_btnCadastroActionPerformed
 
+    private void btnEntrarEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarEActionPerformed
+        if (temEmEmpresaSenha(String.valueOf(txtSenha.getPassword())) || temEmEmpresaEmail(txtEmail.getText()) ){ 
+            RedeSocial redesocial = new RedeSocial();
+            redesocial.admRS = admL;
+            redesocial.lblNome.setText(txtEmail.getText());
+            redesocial.setVisible(true);
+            this.dispose();
+        }
+        else{
+            JOptionPane.showMessageDialog(this,"Email ou Senha incorretos");
+            limparCampos();
+        }
+       
+    }//GEN-LAST:event_btnEntrarEActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        admL.adicionarPessoa("Joselito", "Junior@gmail", "jun10r");
+        admL.adicionarEmpresa("123233", "Bar_do_ze", "zezinBar", "barze@gmail", "casshaa");
+        String[] produtos = {"cerveja", "cafe", "espetinho", "casah"};
+        admL.adicionarProduto("bar_do_ze", produtos);
+        admL.listar();
+    }//GEN-LAST:event_formWindowOpened
+
+   
+
+//Os botões diferentes são solucões temporarias ate eu achar uma condiçao que se encaixe
     /**
      * @param args the command line arguments
      */
@@ -167,7 +256,8 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastro;
-    private javax.swing.JButton btnEntrar;
+    private javax.swing.JButton btnEntrarE;
+    private javax.swing.JButton btnEntrarP;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -1,9 +1,11 @@
 package redesocial.classes;
 
-public class Pessoa extends Usuario {
+import java.util.ArrayList;
 
-    public String nome;
+public class Pessoa extends Usuario {
+    public String nome = super.nomeUsuario;
     public String descr;
+    protected ArrayList<Integer> amigos = new ArrayList();
     //costrutor
     public Pessoa() {
         super.tipoConta = 1;
@@ -26,6 +28,14 @@ public class Pessoa extends Usuario {
         
         this.nome = nome;
         this.descr = descr;
+    }
+    //metodos
+    public void adicionarAmigo(Integer amigo){
+        amigos.addLast(amigo);
+    }
+    public void removerAmigo(int id_da_pessoa){
+        amigos.remove(id_da_pessoa);
+        
     }
     //get e setters
 
@@ -52,34 +62,40 @@ public class Pessoa extends Usuario {
     public void setNomeUsuario(String nomeUsuario) {
         this.nomeUsuario = nomeUsuario;
     }
-
+    @Override
     public String getEmail() {
         return email;
     }
-
+    @Override
     public void setEmail(String email) {
         this.email = email;
     }
-
+    @Override
     public String getSenha() {
         return senha;
     }
-
+    @Override
     public void setSenha(String senha) {
         this.senha = senha;
     }
-
+    @Override
     public int getTipoConta() {
         return tipoConta;
     }
-
+    @Override 
     public void setTipoConta(int tipoConta) {
         this.tipoConta = tipoConta;
     }
-    
+    public ArrayList<Integer> getAmigos() {
+        return amigos;
+    }
+
+    public void setAmigos(ArrayList<Integer> amigos) {
+        this.amigos = amigos;
+    }
     @Override
     public String toString() {
-        return "Pessoa{" + "nome=" + nome + ", descr=" + descr + ", email="+ super.email
+        return "Pessoa{" + "nome=" + nome + ", descr=" + descr +", amigos= {"+ getAmigos() +"}" +", email="+ super.email
                 + ", nome usuario=" + super.nomeUsuario + ", senha=" + super.senha + '}';
 
     }

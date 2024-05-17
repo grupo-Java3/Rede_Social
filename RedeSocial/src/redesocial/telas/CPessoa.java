@@ -3,21 +3,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package redesocial.telas;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import redesocial.classes.Pessoa;
+import redesocial.classes.Usuario;
 
 /**
  *
  * @author cliente
  */
 public class CPessoa extends javax.swing.JFrame {
-
+    Usuario admCP = new Usuario();
     /**
      * Creates new form CPessoa
      */
     public CPessoa() {
         initComponents();
     }
-
+    public String vazio = ("");
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -112,9 +115,29 @@ public class CPessoa extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEmailActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        //Pessoa p = new Pessoa("nome", "email", "senha" );
+        if (validarCampos()){
+            admCP.adicionarPessoa(txtNome.getText(), txtEmail.getText(), String.valueOf(txtSenha.getPassword()));
+            Login login = new Login();
+            login.admL = admCP;
+            login.setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
+    public void limparCampos(){
+        txtNome.setText("");
+        txtEmail.setText("");
+        txtSenha.setText("");
+    }
+    public boolean validarCampos(){
+        if(txtNome.getText().equals(vazio) || txtEmail.getText().equals(vazio) || txtSenha.getPassword().equals(vazio)){
+            JOptionPane.showMessageDialog(this,"Um ou mais campos não preenchidos");
+            return false;
+        }
+        return true;
+    }
+    
+   
     /**
      * @param args the command line arguments
      */
@@ -160,4 +183,5 @@ public class CPessoa extends javax.swing.JFrame {
     private javax.swing.JTextField txtNome;
     private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
+
 }

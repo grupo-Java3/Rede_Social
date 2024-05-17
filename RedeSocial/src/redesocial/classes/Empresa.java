@@ -2,38 +2,50 @@
 package redesocial.classes;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Empresa extends Usuario{
-    public String nomeComercial;
+    public String CNPJ;
+    public String ramo;
     public ArrayList<String> produtos = new ArrayList();//!!reformular vai ser produtos mesmo ou só strings!!
     //construtor
     public Empresa(){
     }
 
-    public Empresa(String nomeComercial, ArrayList<String> produtos){
-        this.nomeComercial = nomeComercial;
+    public Empresa(String CNPJOTO, ArrayList<String> produtos){
+        this.CNPJ = CNPJOTO;
         this.produtos = produtos;
     }
-    
-    public Empresa(String nomeComercial,String nomeUsuario, String email, String senha) {
+
+    public Empresa(String CNPJ, String ramo, String nomeUsuario, String email,
+            String senha) {
         super(nomeUsuario, email, senha);
-        this.nomeComercial = nomeComercial;
-        
+        this.CNPJ = CNPJ;
+        this.ramo = ramo;
     }
+    
     //metodos
     public void adicionar(String prod){
         produtos.add(prod);
     }
     //
 
-    public String getNomeComercial() {
-        return nomeComercial;
+    public String getRamo() {
+        return ramo;
     }
 
-    public void setNomeComercial(String nomeComercial) {
-        this.nomeComercial = nomeComercial;
+    public void setRamo(String ramo) {
+        this.ramo = ramo;
     }
+    
+    public String getCNPJ() {
+        return CNPJ;
+    }
+
+    public void setCNPJ(String CNPJ) {
+        this.CNPJ = CNPJ;
+    }
+
+    
 
     public ArrayList<String> getProdutos() {
         return produtos;
@@ -77,7 +89,7 @@ public class Empresa extends Usuario{
     
     @Override
     public String toString() {
-        return "Empresa{" + "NomeComercial=" + nomeComercial + ", produtos=" + produtos + ", email="+ super.email
+        return "Empresa{" + "CNPJ=" + CNPJ + ", produtos=" + produtos + ", email="+ super.email
                 + ", nome usuario=" + super.nomeUsuario + ", senha=" + super.senha + '}';
     }
     

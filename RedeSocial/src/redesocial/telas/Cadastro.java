@@ -4,12 +4,14 @@
  */
 package redesocial.telas;
 
+import redesocial.classes.Usuario;
+
 /**
  *
  * @author cliente
  */
 public class Cadastro extends javax.swing.JFrame {
-
+    public Usuario admC = new Usuario();
     /**
      * Creates new form Cadastro
      */
@@ -32,12 +34,11 @@ public class Cadastro extends javax.swing.JFrame {
         btnCriar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(464, 300));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setText("Crie uma conta");
 
-        cbTipoDeConta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pessoal", "Impresarial" }));
+        cbTipoDeConta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pessoal", "Empresarial" }));
 
         jLabel2.setText("Selecione o tipo de conta");
 
@@ -83,10 +84,17 @@ public class Cadastro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriarActionPerformed
+        admC.listar();
         if(cbTipoDeConta.getSelectedItem().equals("Pessoal")){
             CPessoa c = new CPessoa();
             this.dispose();
             c.setVisible(true);
+            
+        }
+        else{
+            CEmpresa e = new CEmpresa();
+            this.dispose();
+            e.setVisible(true);
         }
     }//GEN-LAST:event_btnCriarActionPerformed
 
