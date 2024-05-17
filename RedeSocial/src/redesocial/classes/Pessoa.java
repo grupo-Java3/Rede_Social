@@ -1,42 +1,41 @@
 package redesocial.classes;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Pessoa extends Usuario {
     public String nome = super.nomeUsuario;
+    public HashMap lista_de_amigos = super.listaAmigo;
     public String descr;
-    protected ArrayList<Integer> amigos = new ArrayList();
     //costrutor
     public Pessoa() {
-        super.tipoConta = 1;
-    }
-
-    public Pessoa(String nome, String descr) {
-        super.tipoConta = 1;
-        
-        this.nome = nome;
-        this.descr = descr;
+        super.tipoConta=1;
     }
     public Pessoa(String nome_de_usuario, String email, String senha){
         super(nome_de_usuario, email, senha);
+        super.tipoConta=1;
     }
     
     public Pessoa(String nome, String descr, String nomeUsuario, String email, String senha) {
         super(nomeUsuario, email, senha);
-        
-        super.tipoConta = 1;
-        
+        super.tipoConta=1;
         this.nome = nome;
         this.descr = descr;
     }
     //metodos
-    public void adicionarAmigo(Integer amigo){
-        amigos.addLast(amigo);
+    public void adicionarAlguem(String nome, String classe){
+        lista_de_amigos.put(nome, classe);
     }
-    public void removerAmigo(int id_da_pessoa){
-        amigos.remove(id_da_pessoa);
-        
+    //get e setters do hash
+    
+    public HashMap getLista_de_amigos() {
+        return lista_de_amigos;
     }
+
+    public void setLista_de_amigos(HashMap lista_de_amigos) {
+        this.lista_de_amigos = lista_de_amigos;
+    }
+    
     //get e setters
 
     public String getNome() {
@@ -86,16 +85,10 @@ public class Pessoa extends Usuario {
     public void setTipoConta(int tipoConta) {
         this.tipoConta = tipoConta;
     }
-    public ArrayList<Integer> getAmigos() {
-        return amigos;
-    }
 
-    public void setAmigos(ArrayList<Integer> amigos) {
-        this.amigos = amigos;
-    }
     @Override
     public String toString() {
-        return "Pessoa{" + "nome=" + nome + ", descr=" + descr +", amigos= {"+ getAmigos() +"}" +", email="+ super.email
+        return "Pessoa{" + "nome=" + nome + ", descr=" + descr +", amigos= {"+ "..." +"}" +", email="+ super.email
                 + ", nome usuario=" + super.nomeUsuario + ", senha=" + super.senha + '}';
 
     }

@@ -4,7 +4,8 @@ package redesocial.classes;
 import java.util.ArrayList;
 
 public class Empresa extends Usuario{
-    public String CNPJ;
+    public String nome = super.nomeUsuario;
+    public String cnpj;
     public String ramo;
     public ArrayList<String> produtos = new ArrayList();//!!reformular vai ser produtos mesmo ou só strings!!
     //construtor
@@ -12,14 +13,14 @@ public class Empresa extends Usuario{
     }
 
     public Empresa(String CNPJOTO, ArrayList<String> produtos){
-        this.CNPJ = CNPJOTO;
+        this.cnpj = CNPJOTO;
         this.produtos = produtos;
     }
 
-    public Empresa(String CNPJ, String ramo, String nomeUsuario, String email,
+    public Empresa(String CNPJ, String nomeUsuario, String ramo, String email,
             String senha) {
         super(nomeUsuario, email, senha);
-        this.CNPJ = CNPJ;
+        this.cnpj = CNPJ;
         this.ramo = ramo;
     }
     
@@ -38,11 +39,11 @@ public class Empresa extends Usuario{
     }
     
     public String getCNPJ() {
-        return CNPJ;
+        return cnpj;
     }
 
     public void setCNPJ(String CNPJ) {
-        this.CNPJ = CNPJ;
+        this.cnpj = CNPJ;
     }
 
     
@@ -89,7 +90,7 @@ public class Empresa extends Usuario{
     
     @Override
     public String toString() {
-        return "Empresa{" + "CNPJ=" + CNPJ + ", produtos=" + produtos + ", email="+ super.email
+        return "Empresa{" + "CNPJ=" + cnpj + ", produtos=" + produtos + ", email="+ super.email
                 + ", nome usuario=" + super.nomeUsuario + ", senha=" + super.senha + '}';
     }
     

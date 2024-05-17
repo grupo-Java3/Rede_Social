@@ -22,9 +22,14 @@ public class RedeSocial extends javax.swing.JFrame {
         initComponents();
     }
     
+     
+      
+    
     public void exportarArray(Login l){
         ArrayList<String> UserList2 = new ArrayList();
     }
+    
+    
     
 
     /**
@@ -39,31 +44,17 @@ public class RedeSocial extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jPanel2 = new javax.swing.JPanel();
-        lblNome = new javax.swing.JLabel();
-        lblInfo = new javax.swing.JLabel();
-        lblDesc = new javax.swing.JLabel();
         btnUserList = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        lblEmail = new javax.swing.JLabel();
         jDesktopPane1 = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setText("JavaBook");
-
-        lblNome.setText("jLabel3");
-
-        lblInfo.setText("jLabel4");
-        lblInfo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblInfoMouseClicked(evt);
-            }
-        });
-
-        lblDesc.setText("jLabel5");
 
         btnUserList.setText("Lista de usuarios");
         btnUserList.addActionListener(new java.awt.event.ActionListener() {
@@ -74,8 +65,6 @@ public class RedeSocial extends javax.swing.JFrame {
 
         jButton2.setText("Lista de amigos");
 
-        jButton3.setText("Adcionar Amigo");
-
         btnVoltar.setText("Voltar");
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,23 +74,21 @@ public class RedeSocial extends javax.swing.JFrame {
 
         jButton5.setText("Excluir Conta");
 
+        lblEmail.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblDesc)
-                    .addComponent(lblInfo)
-                    .addComponent(lblNome))
-                .addGap(48, 48, 48))
+                .addComponent(lblEmail)
+                .addGap(65, 65, 65))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnUserList, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(14, Short.MAX_VALUE))
@@ -109,17 +96,12 @@ public class RedeSocial extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(lblNome)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblInfo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblDesc)
-                .addGap(173, 173, 173)
+                .addContainerGap()
+                .addComponent(lblEmail)
+                .addGap(211, 211, 211)
                 .addComponent(btnUserList)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnVoltar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -178,11 +160,6 @@ public class RedeSocial extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lblInfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInfoMouseClicked
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_lblInfoMouseClicked
-
     private void btnUserListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserListActionPerformed
        Userlist u = new Userlist();
        jDesktopPane1.add(u);
@@ -237,14 +214,11 @@ public class RedeSocial extends javax.swing.JFrame {
     private javax.swing.JButton btnUserList;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel lblDesc;
-    private javax.swing.JLabel lblInfo;
-    public javax.swing.JLabel lblNome;
+    public javax.swing.JLabel lblEmail;
     // End of variables declaration//GEN-END:variables
 }

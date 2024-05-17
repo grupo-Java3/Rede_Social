@@ -22,6 +22,23 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         
     }
+    
+    public String pEmail;
+    public String pSenha;
+    public String pNome;
+    
+    public void exportarPessoa(Usuario admCP){
+          pNome = admCP.getNomeUsuario();
+          pEmail = admCP.getEmail();
+          pSenha = admCP.getSenha();
+         
+    }
+    
+  
+   
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -43,6 +60,9 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
@@ -133,14 +153,14 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     public boolean temEmPessoaEmail(String validar){
-        for (Pessoa i : admL.listaPessoa)
+        for (Pessoa i : admL.getListaPessoa())
             if (validar.equals(i.getEmail())){
                 return true;
             }
         return false;
     }
     public boolean temEmPessoaSenha(String validar){
-        for (Pessoa i : admL.listaPessoa)
+        for (Pessoa i : admL.getListaPessoa())
             if (validar.equals(validar)){
                 return true;
             }
@@ -165,7 +185,9 @@ public class Login extends javax.swing.JFrame {
     private void btnEntrarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarPActionPerformed
         if (temEmPessoaSenha(String.valueOf(txtSenha.getPassword())) || temEmPessoaEmail(txtEmail.getText()) ){ 
             RedeSocial redesocial = new RedeSocial();
+           
             redesocial.admRS = admL;
+            redesocial.lblEmail.setText(txtEmail.getText());
             redesocial.setVisible(true);
             this.dispose();
         }
@@ -194,7 +216,7 @@ public class Login extends javax.swing.JFrame {
         if (temEmEmpresaSenha(String.valueOf(txtSenha.getPassword())) || temEmEmpresaEmail(txtEmail.getText()) ){ 
             RedeSocial redesocial = new RedeSocial();
             redesocial.admRS = admL;
-            redesocial.lblNome.setText(txtEmail.getText());
+            redesocial.lblEmail.setText(txtEmail.getText());
             redesocial.setVisible(true);
             this.dispose();
         }
@@ -207,12 +229,19 @@ public class Login extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
+        if (admL.getPessoaIndex("Joselito") != 1){
+            admL.adicionarPessoa("a", "b", "c");
         admL.adicionarPessoa("Joselito", "Junior@gmail", "jun10r");
         admL.adicionarEmpresa("123233", "Bar_do_ze", "zezinBar", "barze@gmail", "casshaa");
         String[] produtos = {"cerveja", "cafe", "espetinho", "casah"};
         admL.adicionarProduto("bar_do_ze", produtos);
+        }
         admL.listar();
     }//GEN-LAST:event_formWindowOpened
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+
+    }//GEN-LAST:event_formWindowActivated
 
    
 

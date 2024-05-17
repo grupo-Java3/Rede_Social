@@ -4,12 +4,22 @@
  */
 package redesocial.telas;
 
+import redesocial.ModelUser;
+
 
 /**
  *
  * @author cliente
  */
 public class Userlist extends javax.swing.JInternalFrame {
+    
+    ModelUser model = new ModelUser();
+    
+    
+    public Userlist(){
+        initComponents();
+        tbPessoas.setModel(model);
+    }
 
     /**
      * Creates new form Userlist

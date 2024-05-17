@@ -1,15 +1,17 @@
 package redesocial.classes;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Usuario{
     public String nomeUsuario;
     protected String email;
     protected String senha;
     protected char[] senhaS;
-    protected int tipoConta; // 0 usuario , 1 pessoa, 2 empresa
+    public int tipoConta; // 0 usuario , 1 pessoa, 2 empresa
    //coisas de adm
-    public ArrayList<Pessoa> listaPessoa = new ArrayList();
+    protected HashMap<String, String> listaAmigo = new HashMap<String, String>();
+    private ArrayList<Pessoa> listaPessoa = new ArrayList();
     private ArrayList<Empresa> listaEmpresa = new ArrayList();
    //construtor (precisa?? PRECISA!!)
     public Usuario(){
@@ -29,8 +31,38 @@ public class Usuario{
         this.tipoConta = tipo;
     }
     
+    public Usuario getPessoa(String nome){
+         for(int i = 0; i < listaPessoa.size(); i++){
+             if (listaPessoa.get(i).nomeUsuario.equals(nome)){
+                 Pessoa esse = listaPessoa.get(i);
+                 return esse;
+             }
+         }
+        return null;
+     }
+    
+         public int getPessoaIndex(String nome){
+         for(int i = 0; i < listaPessoa.size(); i++){
+             if (listaPessoa.get(i).nomeUsuario.equals(nome)){
+                 return i;
+             }
+         }
+        return 0;
+     }
+    
      public void adicinar(Pessoa pessoa){
         listaPessoa.add(pessoa);
+     }
+     
+     public void atualizarP(String perfilMOD,String email, String senha ,String nome_perfil, String descricao){
+         Pessoa novo = new Pessoa(email, descricao, nome_perfil, email, senha);
+         System.out.println(this.listaPessoa.get(getPessoaIndex(nome_perfil)) + " <--- " + novo.toString());
+         this.listaPessoa.set(this.getPessoaIndex(perfilMOD), novo);
+     }
+     public void atualizarE(String perfilMOD ,String email, String senha ,String nome_perfil, String CNPJ, String ramo){
+         Empresa novo = new Empresa(CNPJ, nome_perfil, ramo, email, senha);
+         System.out.println(this.listaEmpresa.get(getEmpresaIndex(nome_perfil)) + " <--- " + novo.toString());
+         this.listaEmpresa.set(this.getEmpresaIndex(perfilMOD), novo);
      }
      
      public void adicionarPessoa (String nome, String descricao, String nomeUsuario,String email, String senha){
@@ -48,15 +80,30 @@ public class Usuario{
      public void removerPessoa (Pessoa pessoaRM){
          listaPessoa.remove(pessoaRM);
      }
-     public void fazerAmizade (Integer Pessoa_1,Integer Pessoa_2){
-         System.out.println(listaPessoa.get(Pessoa_1));
-         System.out.println(listaPessoa.get(Pessoa_2));
-         listaPessoa.get(Pessoa_1).amigos.add(Pessoa_2);
-         listaPessoa.get(Pessoa_2).amigos.add(Pessoa_1);
+
+     public void fazerAmizade(Usuario usu1, Usuario usu2){
+         usu1.listaAmigo.put(usu2.getNomeUsuario(), usu2.getClass().getSimpleName());
+         usu2.listaAmigo.put(usu1.getNomeUsuario(), usu1.getClass().getSimpleName());
      }
-     
-     
+
      // EMPRESSSASSSSSSS
+     public Usuario getEmpresa(String nome){
+         for(int i = 0; i < listaEmpresa.size(); i++){
+             if (listaEmpresa.get(i).nomeUsuario.equals(nome)){
+                 Empresa esse = listaEmpresa.get(i);
+                 return esse;
+             }
+         }
+        return null;
+     }
+     public int getEmpresaIndex(String nome){
+         for(int i = 0; i < listaEmpresa.size(); i++){
+             if (listaEmpresa.get(i).nomeUsuario.equals(nome)){
+                 return i;
+             }
+         }
+        return 0;
+     }
      
      public void adicionar(Empresa empresa){
          listaEmpresa.add(empresa);
@@ -112,7 +159,7 @@ public class Usuario{
     }
     
     //gets e setters
-
+    
     public String getNomeUsuario() {
         return nomeUsuario;
     }
@@ -151,4 +198,5 @@ public class Usuario{
     public void setSenhaS(char[] senhaS) {
         this.senhaS = senhaS;
     }
+    
 }
