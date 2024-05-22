@@ -1,41 +1,21 @@
 package redesocial.classes;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Pessoa extends Usuario {
     public String nome = super.nomeUsuario;
-    public HashMap lista_de_amigos = super.listaAmigo;
     public String descr;
+    public ArrayList<Usuario> lista_de_amigos = super.listaAmigo;
     //costrutor
     public Pessoa() {
-        super.tipoConta=1;
+        
     }
-    public Pessoa(String nome_de_usuario, String email, String senha){
-        super(nome_de_usuario, email, senha);
-        super.tipoConta=1;
-    }
+    //teste
     
-    public Pessoa(String nome, String descr, String nomeUsuario, String email, String senha) {
+    public Pessoa(String descr, String nomeUsuario, String email, String senha) {
         super(nomeUsuario, email, senha);
-        super.tipoConta=1;
-        this.nome = nome;
         this.descr = descr;
     }
-    //metodos
-    public void adicionarAlguem(String nome, String classe){
-        lista_de_amigos.put(nome, classe);
-    }
-    //get e setters do hash
-    
-    public HashMap getLista_de_amigos() {
-        return lista_de_amigos;
-    }
-
-    public void setLista_de_amigos(HashMap lista_de_amigos) {
-        this.lista_de_amigos = lista_de_amigos;
-    }
-    
     //get e setters
 
     public String getNome() {
@@ -77,13 +57,13 @@ public class Pessoa extends Usuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    @Override
-    public int getTipoConta() {
-        return tipoConta;
+
+    public ArrayList<Usuario> getLista_de_amigos() {
+        return lista_de_amigos;
     }
-    @Override 
-    public void setTipoConta(int tipoConta) {
-        this.tipoConta = tipoConta;
+
+    public void setLista_de_amigos(ArrayList<Usuario> lista_de_amigos) {
+        this.lista_de_amigos = lista_de_amigos;
     }
 
     @Override

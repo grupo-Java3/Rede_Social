@@ -6,30 +6,30 @@ package redesocial.telas;
 
 import javax.swing.JOptionPane;
 import redesocial.classes.Usuario;
-import redesocial.model.ModelUser;
-
+import redesocial.model.ModelEmpresa;
 
 /**
  *
  * @author cliente
  */
-public class Userlist extends javax.swing.JInternalFrame {
+public class EnterpriseList extends javax.swing.JInternalFrame {
     
-    ModelUser model = new ModelUser();
-    Usuario admU = new Usuario();
-    RedeSocial redesocial = new RedeSocial();
-    
-    
-    public Userlist(){
-        initComponents();
-        tbPessoas.setModel(model);
-    }
+    ModelEmpresa model = new ModelEmpresa();
+    Usuario admE = new Usuario();
     
     
 
     /**
-     * Creates new form Userlist
+     * Creates new form EnterpriseList
      */
+    public EnterpriseList() {
+        initComponents();
+        tbEmpresas.setModel(model);
+    }
+    
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -40,29 +40,24 @@ public class Userlist extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tbPessoas = new javax.swing.JTable();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbEmpresas = new javax.swing.JTable();
         btnAdd = new javax.swing.JButton();
 
         setClosable(true);
 
-        tbPessoas.setModel(new javax.swing.table.DefaultTableModel(
+        tbEmpresas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2"
+                "Title 1", "Title 2", "Title 3"
             }
         ));
-        tbPessoas.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbPessoasMouseClicked(evt);
-            }
-        });
-        jScrollPane2.setViewportView(tbPessoas);
+        jScrollPane1.setViewportView(tbEmpresas);
 
         btnAdd.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnAdd.setText("Adicionar");
@@ -77,43 +72,38 @@ public class Userlist extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(btnAdd)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnAdd)
+                        .addGap(140, 140, 140)))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tbPessoasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPessoasMouseClicked
-        
-    }//GEN-LAST:event_tbPessoasMouseClicked
-
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        int index = tbPessoas.getSelectedRow();
+        int index = tbEmpresas.getSelectedRow();
         Usuario u = this.model.returnUsuario(index);
-        admU.adicionarAmizade(admU,u);
+        admE.adicionarAmizade(admE, u);
         JOptionPane.showMessageDialog(this,"Usuario adicionado");
     }//GEN-LAST:event_btnAddActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable tbPessoas;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tbEmpresas;
     // End of variables declaration//GEN-END:variables
 }

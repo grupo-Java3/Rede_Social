@@ -5,7 +5,6 @@
 package redesocial.telas;
 
 import javax.swing.JOptionPane;
-import redesocial.classes.Empresa;
 import redesocial.classes.Usuario;
 
 /**

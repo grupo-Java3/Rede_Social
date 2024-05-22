@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package redesocial.telas;
-import java.util.ArrayList;
+import java.util.Arrays;
 import javax.swing.JOptionPane;
 import redesocial.classes.Empresa;
 import redesocial.classes.Pessoa;
@@ -60,14 +60,12 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                formWindowActivated(evt);
-            }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Login");
 
         jLabel2.setText("E-mail");
@@ -102,32 +100,36 @@ public class Login extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(180, 180, 180)
-                .addComponent(jLabel1)
-                .addContainerGap(254, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addComponent(txtSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
-                    .addComponent(txtEmail)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btnEntrarP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnEntrarE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(48, 48, 48))
+                        .addGap(51, 51, 51)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(txtSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
+                            .addComponent(txtEmail)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(154, 154, 154)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(btnEntrarP, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(btnEntrarE, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(52, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(63, 63, 63))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(36, 36, 36)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGap(37, 37, 37)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -135,18 +137,15 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEntrarP)
+                    .addComponent(btnEntrarE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(btnCadastro)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(btnEntrarP)
-                        .addGap(28, 28, 28)
-                        .addComponent(btnEntrarE)))
-                .addContainerGap(35, Short.MAX_VALUE))
+                    .addComponent(jLabel4)
+                    .addComponent(btnCadastro))
+                .addGap(50, 50, 50))
         );
 
         pack();
@@ -161,7 +160,7 @@ public class Login extends javax.swing.JFrame {
     }
     public boolean temEmPessoaSenha(String validar){
         for (Pessoa i : admL.getListaPessoa())
-            if (validar.equals(validar)){
+            if (validar.equals(i.getSenha())){
                 return true;
             }
         return false;
@@ -176,7 +175,7 @@ public class Login extends javax.swing.JFrame {
     }
     public boolean temEmEmpresaSenha(String validar){
         for (Empresa i : admL.getListaEmpresa())
-            if (validar.equals(validar)){
+            if (validar.equals(i.getSenha())){
                 return true;
             }
         return false;
@@ -185,9 +184,8 @@ public class Login extends javax.swing.JFrame {
     private void btnEntrarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarPActionPerformed
         if (temEmPessoaSenha(String.valueOf(txtSenha.getPassword())) || temEmPessoaEmail(txtEmail.getText()) ){ 
             RedeSocial redesocial = new RedeSocial();
-           
+            admL.setPessoa_sessao(admL.getPessoaEmail(txtEmail.getText()));
             redesocial.admRS = admL;
-            redesocial.lblEmail.setText(txtEmail.getText());
             redesocial.setVisible(true);
             this.dispose();
         }
@@ -215,8 +213,8 @@ public class Login extends javax.swing.JFrame {
     private void btnEntrarEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarEActionPerformed
         if (temEmEmpresaSenha(String.valueOf(txtSenha.getPassword())) || temEmEmpresaEmail(txtEmail.getText()) ){ 
             RedeSocial redesocial = new RedeSocial();
+            admL.setEmpresa_sessao(admL.getEmpresaEmail(txtEmail.getText()));
             redesocial.admRS = admL;
-            redesocial.lblEmail.setText(txtEmail.getText());
             redesocial.setVisible(true);
             this.dispose();
         }
@@ -229,19 +227,28 @@ public class Login extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-        if (admL.getPessoaIndex("Joselito") != 1){
-            admL.adicionarPessoa("a", "b", "c");
-        admL.adicionarPessoa("Joselito", "Junior@gmail", "jun10r");
-        admL.adicionarEmpresa("123233", "Bar_do_ze", "zezinBar", "barze@gmail", "casshaa");
-        String[] produtos = {"cerveja", "cafe", "espetinho", "casah"};
-        admL.adicionarProduto("bar_do_ze", produtos);
+        admL.setPessoa_sessao(null);
+        admL.setEmpresa_sessao(null);
+        if (admL.getPessoaIndex("Joselito") != 1) {
+            admL.adicionarPessoa("adm","a", "b", "c");
+            admL.adicionarPessoa("adm","Joselito", "Junior@gmail", "jun10r");
+            admL.adicionarPessoa("programador","Gustavo", "gustavo@gmail", "123gugu1221");
+            admL.adicionarEmpresa("123233", "Bar", "zezinBar", "barze@gmail", "casshaa");
+            admL.adicionarEmpresa("...", "adm", "c", "b", "a");
+            String[] produtos = {"cerveja", "cafe", "espetinho", "casah"};
+            System.out.println(Arrays.toString(produtos));
+            admL.adicionarProduto("zezinBar", produtos);
+            admL.adicionarEmpresa("167545", "foguetes", "ElonX", "mosquetao@gmail", "verde");
+            produtos[0] = "foguete que da re";
+            produtos[1] = "satelites";
+            produtos[2] = "viagem a marte";
+            produtos[3] = "verificado do X";
+            admL.adicionarProduto("ElonX", produtos);
+            String[] outro = {"bannir", "desbannir"};
+            admL.adicionarProduto("c", outro);
         }
         admL.listar();
     }//GEN-LAST:event_formWindowOpened
-
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-
-    }//GEN-LAST:event_formWindowActivated
 
    
 
